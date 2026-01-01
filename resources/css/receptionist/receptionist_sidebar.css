@@ -1,0 +1,203 @@
+/* receptionist_sidebar.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #0a1f33;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    max-width: 90%;
+}
+
+/* Sidebar Links */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 25px;
+    display: block;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #1b3b5f;
+    border-left: 4px solid #00aaff;
+}
+
+/* Sidebar Link with Icon (for Alerts & Checkout) */
+.sidebar .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 12px 25px;
+}
+
+.sidebar .sidebar-link .icon {
+    font-size: 1.1rem;
+}
+
+.sidebar .sidebar-link span:nth-child(2) {
+    flex: 1;
+}
+
+/* Badge for Alerts */
+.sidebar .sidebar-link .badge {
+    position: absolute;
+    right: 20px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Logout Button */
+.sidebar form {
+    margin-top: auto;
+}
+
+.logout-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #1b3b5f;
+    border-left: 4px solid #00aaff;
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .logo img {
+        width: 150px;
+    }
+    
+    .sidebar a,
+    .logout-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .sidebar h2 {
+        font-size: 16px;
+    }
+    
+    .logo img {
+        width: 180px;
+    }
+}
+
+/* Mobile Menu Toggle (optional - add if you want collapsible sidebar) */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: #0a1f33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}

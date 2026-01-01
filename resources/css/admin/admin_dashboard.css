@@ -1,0 +1,569 @@
+/* ========================================
+   ADMIN DASHBOARD STYLES
+   ======================================== */
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #f5f7fa;
+    color: #1e293b;
+}
+
+/* ========================================
+   MAIN CONTENT CONTAINER
+   ======================================== */
+.main {
+    margin-left: 260px;
+    padding: 30px;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   STATISTICS CARDS HEADER
+   ======================================== */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    flex: 1 1 240px;
+    min-width: 240px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #3b82f6;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Background Gradient (subtle) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 8px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.card span {
+    color: #10b981;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.card span::before {
+    content: '↗';
+    font-size: 14px;
+}
+
+/* Negative trend */
+.card span.negative {
+    color: #ef4444;
+}
+
+.card span.negative::before {
+    content: '↘';
+}
+
+/* ========================================
+   GRID LAYOUT FOR SECTIONS
+   ======================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   SECTION CARDS
+   ======================================== */
+.section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+thead {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+th {
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 600;
+    color: white;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+th:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+th:last-child {
+    border-radius: 0 8px 0 0;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #475569;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Status Styling */
+td[style*="color: orange"] {
+    color: #f59e0b !important;
+    font-weight: 600;
+}
+
+td[style*="color:red"],
+td[style*="color: red"] {
+    color: #ef4444 !important;
+    font-weight: 600;
+}
+
+/* ========================================
+   UNORDERED LISTS (Doctor Activity)
+   ======================================== */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 3px solid #3b82f6;
+    color: #475569;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+ul li:hover {
+    background: #eff6ff;
+    border-left-color: #2563eb;
+    transform: translateX(4px);
+}
+
+ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   FOOTER GRID
+   ======================================== */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ========================================
+   MESSAGE LINES
+   ======================================== */
+.message-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+    margin: 16px 0;
+}
+
+.section p {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.section p b {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 2px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pagination p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+}
+
+.pages {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pages button,
+.pages a button {
+    padding: 8px 14px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #475569;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 40px;
+}
+
+.pages button:hover:not(:disabled):not(.active) {
+    background: #f8fafc;
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.pages button.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.pages button:disabled {
+    background: #f1f5f9;
+    color: #cbd5e1;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+.pages a {
+    text-decoration: none;
+}
+
+/* ========================================
+   EMPTY STATES
+   ======================================== */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+}
+
+.empty-state-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: #94a3b8;
+    margin: 8px 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main {
+        margin-left: 220px;
+        padding: 20px;
+    }
+
+    .header {
+        gap: 15px;
+    }
+
+    .card {
+        flex: 1 1 200px;
+        min-width: 200px;
+        padding: 20px;
+    }
+
+    .card p {
+        font-size: 32px;
+    }
+
+    .grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .card {
+        width: 100%;
+        min-width: 100%;
+        padding: 18px;
+    }
+
+    .card p {
+        font-size: 28px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .section h3 {
+        font-size: 16px;
+    }
+
+    /* Responsive Table */
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+    }
+
+    /* Stack pagination */
+    .pagination {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pages {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .main {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card h3 {
+        font-size: 12px;
+    }
+
+    .card p {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    th,
+    td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    ul li {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading .card,
+.loading .section {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.pages button:focus,
+.pages a:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .main {
+        margin-left: 0;
+    }
+
+    .card,
+    .section {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+
+    .pagination {
+        display: none;
+    }
+
+    tbody tr:hover {
+        background: transparent;
+    }
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+.section::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.section::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.section::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.section::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card,
+.section {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
