@@ -1,0 +1,446 @@
+/* ============================================================
+   MEDILINK — SHARED SIDEBAR STYLES
+   Used by: admin, doctor, nurse, pharmacist, receptionist
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f0f4f8;
+    color: #1e293b;
+}
+
+/* ============================================================
+   SIDEBAR SHELL
+   ============================================================ */
+.sidebar {
+    width: 256px;
+    height: 100vh;
+    background: linear-gradient(175deg, #0a1f33 0%, #152d45 100%);
+    color: rgba(255, 255, 255, 0.82);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18);
+    transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+.sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.28); }
+
+/* ============================================================
+   HEADER  (role label + logo)
+   ============================================================ */
+.sb-header { padding: 0 18px 14px; }
+
+.sb-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.38);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sb-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s;
+}
+.sb-logo:hover { background: rgba(255, 255, 255, 0.1); }
+
+.sb-logo img {
+    height: 28px;
+    width: auto;
+    max-width: 110px;
+    object-fit: contain;
+    filter: brightness(1.15);
+}
+
+/* ============================================================
+   DIVIDER + SECTION LABEL
+   ============================================================ */
+.sb-divider {
+    height: 0.5px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 12px 16px;
+}
+
+.sb-section {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+    padding: 10px 22px 4px;
+}
+
+/* ============================================================
+   NAV LINKS  (top-level)
+   ============================================================ */
+.sb-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px 10px 18px;
+    margin: 1px 10px;
+    border-radius: 9px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    position: relative;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+    border: 0.5px solid transparent;
+    cursor: pointer;
+}
+
+/* Hover */
+.sb-link:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* Active */
+.sb-link.active {
+    background: rgba(0, 170, 255, 0.13);
+    color: #ffffff;
+    font-weight: 600;
+    border-color: rgba(0, 170, 255, 0.22);
+}
+.sb-link.active::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 22%;
+    height: 56%;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: #00aaff;
+}
+
+/* Focus */
+.sb-link:focus-visible {
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
+
+/* Icon */
+.sb-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+/* Label */
+.sb-label { flex: 1; }
+
+/* ============================================================
+   NOTIFICATION BADGE
+   ============================================================ */
+.sb-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #ef4444;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+/* Color variants */
+.sb-badge--orange  { background: #f97316; }
+.sb-badge--green   { background: #10b981; }
+.sb-badge--purple  { background: #6366f1; }
+.sb-badge--blue    { background: #0ea5e9; }
+
+/* Pulse animation for critical/urgent badges */
+.sb-badge--pulse {
+    animation: sbBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes sbBadgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); }
+    50%       { box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); }
+}
+
+/* ============================================================
+   DROPDOWN MENU
+   ============================================================ */
+.sb-dropdown { margin: 1px 10px; }
+
+.sb-drop-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px 10px 18px;
+    border-radius: 9px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    cursor: pointer;
+    border: 0.5px solid transparent;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+    width: 100%;
+    text-align: left;
+    background: none;
+    font-family: inherit;
+}
+.sb-drop-trigger:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+.sb-drop-trigger.open,
+.sb-drop-trigger.active {
+    background: rgba(0, 170, 255, 0.1);
+    color: #fff;
+    border-color: rgba(0, 170, 255, 0.18);
+}
+.sb-drop-trigger:focus-visible {
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
+
+.sb-drop-arrow {
+    font-size: 9px;
+    opacity: 0.5;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+.sb-drop-trigger.open .sb-drop-arrow { transform: rotate(180deg); }
+
+/* Dropdown content */
+.sb-drop-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    margin: 2px 0 0;
+}
+.sb-drop-content.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Sub-links */
+.sb-sub-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 48px;
+    margin: 1px 4px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    position: relative;
+    transition: background 0.15s ease, color 0.15s ease;
+    cursor: pointer;
+}
+.sb-sub-link::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+    transition: background 0.15s;
+}
+.sb-sub-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+.sb-sub-link.active { color: #00aaff; font-weight: 500; }
+.sb-sub-link.active::before { background: #00aaff; }
+.sb-sub-link:focus-visible { outline: 2px solid #00aaff; outline-offset: 2px; }
+
+/* ============================================================
+   FOOTER / LOGOUT
+   ============================================================ */
+.sb-footer {
+    margin-top: auto;
+    padding: 14px 10px 0;
+}
+
+.sb-logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px 10px 18px;
+    margin: 0;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 120, 120, 0.85);
+    background: rgba(239, 68, 68, 0.07);
+    border: 0.5px solid rgba(239, 68, 68, 0.2);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.sb-logout:hover {
+    background: rgba(239, 68, 68, 0.16);
+    color: #ff8080;
+    border-color: rgba(239, 68, 68, 0.35);
+}
+.sb-logout:focus-visible {
+    outline: 2px solid #ef4444;
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   MAIN CONTENT OFFSET
+   ============================================================ */
+.main-content {
+    margin-left: 256px;
+    padding: 28px 32px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .sidebar    { width: 220px; }
+    .sb-link,
+    .sb-drop-trigger { font-size: 13px; padding: 9px 12px 9px 16px; }
+    .main-content { margin-left: 220px; padding: 20px; }
+}
+
+/* Mobile — hidden by default, toggled via .sidebar--open */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 256px;
+        box-shadow: none;
+    }
+    .sidebar.sidebar--open {
+        transform: translateX(0);
+        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.3);
+    }
+    .main-content { margin-left: 0; padding: 16px; }
+
+    /* Overlay backdrop */
+    .sb-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+    }
+    .sb-overlay.active { display: block; }
+
+    /* Hamburger button */
+    .sb-toggle {
+        display: flex;
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        z-index: 1001;
+        background: #0a1f33;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 10px;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .sb-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        border-radius: 1px;
+        transition: transform 0.2s, opacity 0.2s;
+    }
+}
+@media (min-width: 769px) {
+    .sb-toggle { display: none; }
+    .sb-overlay { display: none !important; }
+}
+
+/* ============================================================
+   COLLAPSED SIDEBAR  (desktop icon-only mode)
+   ============================================================ */
+.sidebar.sidebar--collapsed { width: 64px; }
+.sidebar.sidebar--collapsed .sb-role,
+.sidebar.sidebar--collapsed .sb-section,
+.sidebar.sidebar--collapsed .sb-label,
+.sidebar.sidebar--collapsed .sb-badge,
+.sidebar.sidebar--collapsed .sb-drop-arrow,
+.sidebar.sidebar--collapsed .sb-drop-content,
+.sidebar.sidebar--collapsed .sb-logo img { display: none; }
+.sidebar.sidebar--collapsed .sb-logo { padding: 7px; justify-content: center; }
+.sidebar.sidebar--collapsed .sb-link,
+.sidebar.sidebar--collapsed .sb-drop-trigger { justify-content: center; padding: 11px; margin: 1px 6px; }
+.sidebar.sidebar--collapsed + .main-content { margin-left: 64px; }
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================================
+   HIGH CONTRAST
+   ============================================================ */
+@media (prefers-contrast: high) {
+    .sidebar { border-right: 2px solid #fff; }
+    .sb-link, .sb-drop-trigger { border: 1px solid rgba(255,255,255,0.3); }
+    .sb-link.active { border: 2px solid #00aaff; }
+}

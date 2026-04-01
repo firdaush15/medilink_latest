@@ -1,0 +1,724 @@
+/* ========================================
+   DOCTOR APPOINTMENTS PAGE STYLING
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.main {
+    margin-left: 260px;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+/* ========================================
+   PAGE TITLE
+   ======================================== */
+.page-title {
+    font-size: 36px;
+    color: #1a202c;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* ========================================
+   TIME FILTER BUTTONS
+   ======================================== */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.time-filter,
+.status-filter {
+    padding: 12px 24px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-filter:hover,
+.status-filter:hover {
+    border-color: #667eea;
+    color: #667eea;
+    background: #f0f4ff;
+}
+
+.time-filter.active,
+.status-filter.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+/* ========================================
+   OVERVIEW CARDS
+   ======================================== */
+.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid;
+    transition: all 0.3s ease;
+}
+
+.card:nth-child(1) { border-color: #3b82f6; }
+.card:nth-child(2) { border-color: #10b981; }
+.card:nth-child(3) { border-color: #f59e0b; }
+.card:nth-child(4) { border-color: #8b5cf6; }
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.card span {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* ========================================
+   TODAY'S APPOINTMENTS SECTION
+   ======================================== */
+.today-appointments-title {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.today-appointments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.appt-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.appt-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.appt-card.disabled-card {
+    opacity: 0.6;
+    background: #f9fafb;
+    border-left-color: #cbd5e1;
+}
+
+.appt-card h4 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.appt-card p {
+    margin-bottom: 10px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.appt-card strong {
+    color: #1a202c;
+}
+
+/* ========================================
+   STATUS BADGES
+   ======================================== */
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status.confirmed { background: #dbeafe; color: #1e40af; }
+.status.checked-in { background: #ddd6fe; color: #5b21b6; }
+.status.vitals-pending { background: #fef3c7; color: #92400e; }
+.status.vitals-recorded { background: #fce7f3; color: #9f1239; }
+.status.ready-for-doctor { background: #d1fae5; color: #065f46; }
+.status.in-consultation { background: #e0e7ff; color: #3730a3; }
+.status.completed { background: #d1fae5; color: #065f46; }
+.status.cancelled { background: #fee2e2; color: #991b1b; }
+
+.queue-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ========================================
+   VITALS BOX
+   ======================================== */
+.vitals-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    border-left: 4px solid #3b82f6;
+}
+
+.vitals-box strong {
+    color: #1e3a8a;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.vitals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.vitals-grid span {
+    color: #1e40af;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.critical-alert {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    border-left: 4px solid #dc2626;
+}
+
+/* ========================================
+   APPOINTMENT ACTIONS
+   ======================================== */
+.appt-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.appt-actions button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.appt-actions button:first-child {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.appt-actions button:first-child:hover {
+    background: #f0f4ff;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-continue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.btn-continue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.complete-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.consultation-timer-badge {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* ========================================
+   WORKFLOW LOCK OVERLAY
+   ======================================== */
+.workflow-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    z-index: 10;
+}
+
+.workflow-lock-message {
+    text-align: center;
+    padding: 30px;
+}
+
+.workflow-lock-message svg {
+    color: #f59e0b;
+    margin-bottom: 15px;
+}
+
+.workflow-lock-message h4 {
+    color: #1a202c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.workflow-lock-message p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.workflow-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.workflow-badge.confirmed { background: #dbeafe; color: #1e40af; }
+.workflow-badge.checked-in { background: #ddd6fe; color: #5b21b6; }
+.workflow-badge.vitals-pending { background: #fef3c7; color: #92400e; }
+.workflow-badge.vitals-recorded { background: #fce7f3; color: #9f1239; }
+
+/* ========================================
+   FILTERS & SORT CONTAINER
+   ======================================== */
+.filters-and-sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-btn {
+    padding: 12px 24px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    background: #f0f4ff;
+}
+
+.sort-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+.sort-options.show {
+    display: block;
+}
+
+.sort-options div {
+    padding: 14px 20px;
+    cursor: pointer;
+    color: #374151;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.sort-options div:hover {
+    background: #f0f4ff;
+    color: #667eea;
+}
+
+/* ========================================
+   TABLE SECTION
+   ======================================== */
+.section {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.section h3 {
+    font-size: 22px;
+    color: #1a202c;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+thead th {
+    padding: 18px 20px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+tbody td {
+    padding: 18px 20px;
+    color: #374151;
+    font-size: 14px;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.continue-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    margin-left: 8px;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* ========================================
+   EMPTY MESSAGE
+   ======================================== */
+.empty-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+    font-size: 16px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   MODAL STYLES
+   ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 26px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.modal-content p {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.modal-small {
+    max-width: 450px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #f3f4f6;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #e5e7eb;
+    transform: rotate(90deg);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+#viewModalContent p {
+    margin-bottom: 15px;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+#viewModalContent strong {
+    color: #1a202c;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .overview {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .today-appointments {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .time-filter,
+    .status-filter {
+        width: 100%;
+    }
+
+    .overview {
+        grid-template-columns: 1fr;
+    }
+
+    .today-appointments {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-and-sort-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-buttons {
+        width: 100%;
+    }
+
+    .sort-dropdown {
+        width: 100%;
+    }
+
+    .sort-btn {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .appt-actions {
+        flex-direction: column;
+    }
+
+    .appt-actions button {
+        width: 100%;
+    }
+
+    .vitals-grid {
+        grid-template-columns: 1fr;
+    }
+}

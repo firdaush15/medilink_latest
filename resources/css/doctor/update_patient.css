@@ -1,0 +1,857 @@
+/* ========================================
+   UPDATE PATIENT RECORD STYLING
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.main {
+    margin-left: 260px;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+/* ========================================
+   BACK BUTTON
+   ======================================== */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.back-btn:hover {
+    background: #f0f4ff;
+    transform: translateX(-5px);
+}
+
+/* ========================================
+   PATIENT INFO HEADER
+   ======================================== */
+.patient-header {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.patient-info h1 {
+    font-size: 28px;
+    color: #1a202c;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.patient-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.patient-details span {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.patient-details strong {
+    color: #1a202c;
+}
+
+.appointment-info {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #3b82f6;
+}
+
+.appointment-info p {
+    margin-bottom: 8px;
+    color: #1e3a8a;
+    font-size: 14px;
+}
+
+.appointment-info strong {
+    color: #1e40af;
+}
+
+/* ========================================
+   TABS
+   ======================================== */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+/* ========================================
+   TAB CONTENT
+   ======================================== */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content-header {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 0;
+}
+
+.content-header h2 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.content-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* ========================================
+   ALLERGY ALERT BANNER
+   ======================================== */
+.allergy-alert-banner {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left: 5px solid #dc2626;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.alert-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.alert-content strong {
+    color: #991b1b;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.alert-content p {
+    color: #7f1d1d;
+    font-size: 14px;
+}
+
+.alert-content a {
+    color: #991b1b;
+    font-weight: 700;
+}
+
+/* ========================================
+   MODERN FORM STYLING
+   ======================================== */
+.modern-form {
+    background: white;
+    padding: 35px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.required {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group small {
+    display: block;
+    color: #9ca3af;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ========================================
+   FILE UPLOAD AREA
+   ======================================== */
+.file-upload-area {
+    position: relative;
+}
+
+.file-upload-area input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border: 3px dashed #cbd5e1;
+    border-radius: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.file-label svg {
+    color: #667eea;
+    margin-bottom: 12px;
+}
+
+.file-label span {
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.file-label small {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* ========================================
+   PRESCRIPTION ITEMS
+   ======================================== */
+.prescription-item {
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #e5e7eb;
+    margin-bottom: 25px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.item-header h4 {
+    color: #1a202c;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-remove {
+    padding: 8px 16px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+    background: #fecaca;
+    transform: scale(1.05);
+}
+
+.btn-add-item {
+    padding: 14px 28px;
+    background: white;
+    border: 2px dashed #cbd5e1;
+    color: #667eea;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-add-item:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   FORM ACTIONS
+   ======================================== */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    padding: 14px 32px;
+    background: white;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #cbd5e1;
+}
+
+/* ========================================
+   ALLERGIES SECTION
+   ======================================== */
+.btn-add-allergy {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-add-allergy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.form-header-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.form-header-section h3 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.form-header-section p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.allergies-list-section {
+    margin-top: 30px;
+}
+
+.allergy-summary {
+    margin-bottom: 25px;
+}
+
+.allergy-summary h3 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 5px;
+}
+
+.allergy-summary p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.allergy-detail-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border-left: 5px solid;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.allergy-detail-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.severity-lifethreatening { border-color: #dc2626; }
+.severity-severe { border-color: #f59e0b; }
+.severity-moderate { border-color: #eab308; }
+.severity-mild { border-color: #3b82f6; }
+
+.allergy-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.allergy-title-section h4 {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.allergy-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.severity-badge,
+.type-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.severity-badge.lifethreatening {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.severity-badge.severe {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.severity-badge.moderate {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.severity-badge.mild {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.type-badge {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.btn-deactivate {
+    padding: 8px 16px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-deactivate:hover {
+    background: #fecaca;
+}
+
+.allergy-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-label {
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    color: #1a202c;
+    font-size: 15px;
+}
+
+.allergy-footer {
+    padding-top: 15px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.allergy-footer small {
+    color: #9ca3af;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.empty-state-allergies {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.empty-state-allergies svg {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.empty-state-allergies h3 {
+    font-size: 24px;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.empty-state-allergies p {
+    color: #6b7280;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   HISTORY SECTION
+   ======================================== */
+.history-section {
+    margin-bottom: 40px;
+}
+
+.history-section h3 {
+    font-size: 22px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.history-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.history-header h4 {
+    font-size: 18px;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+.record-type {
+    padding: 5px 12px;
+    background: #f3f4f6;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.date {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.description {
+    color: #4b5563;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.prescription-notes {
+    background: #fef3c7;
+    padding: 15px;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    color: #78350f;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.medicines-list {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.medicines-list h5 {
+    color: #374151;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.medicine-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.medicine-item:last-child {
+    margin-bottom: 0;
+}
+
+.medicine-name {
+    font-weight: 700;
+    color: #1a202c;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.medicine-details {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.medicine-details span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.medicine-details strong {
+    color: #374151;
+}
+
+.history-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.history-footer small {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #f0f9ff;
+    color: #0369a1;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.file-link:hover {
+    background: #dbeafe;
+    transform: translateX(5px);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state svg {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        overflow-x: scroll;
+    }
+
+    .allergy-card-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .allergy-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .history-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
